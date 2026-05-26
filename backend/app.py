@@ -54,7 +54,7 @@ def create_app() -> Flask:
             return exc
         current_app.logger.exception("Unhandled exception: %s", exc)
         if request.path.startswith("/api/"):
-            return jsonify({"ok": False, "error": "服务器内部错误。请查看 Flask 终端日志。", "detail": str(exc)}), 500
+            return jsonify({"ok": False, "error": "服务器内部错误。请查看 Flask 终端日志。"}), 500
         raise exc
 
     @app.get("/health")
