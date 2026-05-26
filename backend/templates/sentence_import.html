@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}导入句型 · CET-6 日课{% endblock %}
+{% block content %}
+<header class="page-header">
+  <p class="eyebrow">Import</p>
+  <h1>导入六级句型</h1>
+  <p class="muted">字段：title, category, pattern_en, pattern_cn, example_en, example_cn, slots, usage_note, difficulty, tag, source_order。</p>
+</header>
+
+<section class="hero-card">
+  <h2>一键导入内置 P10 数据</h2>
+  <p class="muted">项目包里已带 data/cet6_sentence_patterns_import.csv。</p>
+  <button class="btn-primary" id="defaultImportBtn">导入内置 140 条句型</button>
+</section>
+
+<section class="hero-card">
+  <h2>上传自定义 CSV</h2>
+  <input class="input" type="file" id="csvFile" accept=".csv,text/csv">
+  <button class="btn-secondary" id="uploadBtn">上传导入</button>
+</section>
+
+<pre class="result-box" id="resultBox">等待操作……</pre>
+
+<script src="{{ url_for('static', filename='js/api.js', v='p10_2_6') }}"></script>
+<script src="{{ url_for('static', filename='js/sentence_import.js', v='p10_2_6') }}"></script>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}导入词库{% endblock %}
+{% block content %}
+<header class="page-header">
+  <p class="eyebrow">WORD IMPORT</p>
+  <h1>导入词库</h1>
+  <p class="muted">CSV 字段建议：word, phonetic, meaning_cn, example_en, example_cn, tag, source_order。</p>
+</header>
+<section class="hero-card">
+  <input class="input" type="file" id="wordCsv" accept=".csv">
+  <button class="btn-primary" id="uploadWordBtn" type="button">上传并导入</button>
+  <pre class="result-box" id="importResult"></pre>
+</section>
+<script src="{{ url_for('static', filename='js/api.js', v='p10_2_6') }}"></script>
+<script src="{{ url_for('static', filename='js/word_import.js', v='p10_2_6') }}"></script>
+{% endblock %}

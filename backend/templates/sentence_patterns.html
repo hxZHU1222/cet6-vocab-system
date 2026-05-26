@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}句型库 · CET-6 日课{% endblock %}
+{% block content %}
+<header class="page-header">
+  <p class="eyebrow">CET-6 Writing</p>
+  <h1>六级句型库</h1>
+  <p class="muted">模板 + 中文含义 + 六级例句 + 替换槽位 + 使用场景。</p>
+</header>
+
+<section class="filter-card">
+  <input class="input" id="searchInput" placeholder="搜索模板 / 中文 / 例句">
+  <select class="input" id="categorySelect"><option value="">全部分类</option></select>
+  <select class="input" id="statusSelect">
+    <option value="">全部状态</option>
+    <option value="learning">学习中</option>
+    <option value="weak">不会/眼熟</option>
+    <option value="mastered">已掌握</option>
+  </select>
+</section>
+
+<section id="patternList" class="pattern-list"></section>
+<div class="pagination-row">
+  <button class="btn-secondary" id="prevBtn">上一页</button>
+  <span id="pageInfo" class="muted">--</span>
+  <button class="btn-secondary" id="nextBtn">下一页</button>
+</div>
+
+<script src="{{ url_for('static', filename='js/api.js', v='p10_2_6') }}"></script>
+<script src="{{ url_for('static', filename='js/sentence_patterns.js', v='p10_2_6') }}"></script>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}今日任务 · P10.2{% endblock %}
+{% block content %}
+<header class="page-header">
+  <p class="eyebrow">P10.2 MERGED DASHBOARD</p>
+  <h1>今日任务</h1>
+  <p class="muted">单词任务和句型任务已经合并显示；句型只做学习与复习，不做句型默写。</p>
+</header>
+
+<section class="hero-card task-card">
+  <div class="card-row">
+    <div>
+      <p class="eyebrow">WORDS</p>
+      <h2>词汇模块</h2>
+      <p class="muted" id="wordSummary">正在读取今日单词任务……</p>
+    </div>
+    <strong class="big-number" id="wordRate">0%</strong>
+  </div>
+  <div class="progress-line"><span id="wordBar"></span></div>
+  <div class="action-grid two">
+    <a class="btn-primary" href="/study?mode=today_new">继续背词</a>
+    <a class="btn-secondary" href="/dictation?mode=today">今日默写</a>
+  </div>
+</section>
+
+<section class="hero-card task-card">
+  <div class="card-row">
+    <div>
+      <p class="eyebrow">PATTERNS</p>
+      <h2>六级句型</h2>
+      <p class="muted" id="patternSummary">正在读取今日句型任务……</p>
+    </div>
+    <strong class="big-number" id="patternRate">0%</strong>
+  </div>
+  <div class="progress-line"><span id="patternBar"></span></div>
+  <div class="action-grid two">
+    <a class="btn-primary" href="/patterns/study?mode=today_new">今日新句型</a>
+    <a class="btn-secondary" href="/patterns/study?mode=today_review">句型复习</a>
+  </div>
+</section>
+
+<section class="card-grid">
+  <a class="small-card" href="/study?mode=weak"><strong>弱词回看</strong><span>只看不认识 / 眼熟的词</span></a>
+  <a class="small-card" href="/study?mode=wrong"><strong>错词卡片</strong><span>默写错过才算真正错词</span></a>
+  <a class="small-card" href="/study?mode=random"><strong>随机刷词</strong><span>今日 100 完成后也可以继续刷</span></a>
+  <a class="small-card" href="/patterns"><strong>句型库</strong><span>模板、例句、替换槽位已分开</span></a>
+</section>
+<script src="{{ url_for('static', filename='js/api.js', v='p10_2_6') }}"></script>
+<script src="{{ url_for('static', filename='js/dashboard.js', v='p10_2_6') }}"></script>
+{% endblock %}

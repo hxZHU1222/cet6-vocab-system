@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}句型学习 · CET-6 日课{% endblock %}
+{% block content %}
+<header class="compact-header">
+  <a href="/patterns" class="back-link">← 句型库</a>
+  <span id="sessionInfo" class="muted">句型学习</span>
+</header>
+
+<section class="study-card" id="studyCard">
+  <p class="eyebrow" id="patternCategory">--</p>
+  <h1 id="patternTitle">正在加载……</h1>
+  <div class="field-label">句型模板</div>
+  <p class="pattern-main" id="patternEn"></p>
+  <p class="pattern-cn" id="patternCn"></p>
+  <div class="example-box">
+    <div class="field-label">六级例句</div>
+    <p id="exampleEn"></p>
+    <p id="exampleCn" class="muted"></p>
+  </div>
+  <div class="slot-box">
+    <strong>替换槽位</strong>
+    <p id="slots"></p>
+  </div>
+  <p class="muted" id="usageNote"></p>
+</section>
+
+<section class="grade-grid">
+  <button class="grade-btn grade-0" data-grade="0">不会</button>
+  <button class="grade-btn grade-1" data-grade="1">眼熟</button>
+  <button class="grade-btn grade-2" data-grade="2">会套用</button>
+  <button class="grade-btn grade-3" data-grade="3">熟了</button>
+</section>
+
+<section class="action-grid two study-actions">
+  <button class="btn-secondary" id="prevCardBtn">上一张</button>
+  <button class="btn-primary" id="nextCardBtn">下一张</button>
+</section>
+
+<script src="{{ url_for('static', filename='js/api.js', v='p10_2_6') }}"></script>
+<script src="{{ url_for('static', filename='js/sentence_study.js', v='p10_2_6') }}"></script>
+{% endblock %}

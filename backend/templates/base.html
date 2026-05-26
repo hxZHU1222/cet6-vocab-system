@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{% block title %}CET-6 日课{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css', v='p10_2_6') }}">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <main class="app-shell">
+    {% block content %}{% endblock %}
+    <nav class="bottom-nav">
+      <a href="/" class="nav-item">今日</a>
+      <a href="/study" class="nav-item">单词</a>
+      <a href="/dictation" class="nav-item">默写</a>
+      <a href="/patterns" class="nav-item">句型</a>
+      <a href="/stats" class="nav-item">统计</a>
+    </nav>
+  </main>
+</body>
+</html>

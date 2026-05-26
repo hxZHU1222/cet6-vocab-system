@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}单词默写{% endblock %}
+{% block content %}
+<header class="page-header">
+  <p class="eyebrow">WORD DICTATION</p>
+  <h1>默写中心</h1>
+  <p class="muted">这里只做词汇默写。句型模块只做模板学习和复习，不做句型默写。</p>
+</header>
+<section class="filter-card dictation-modes">
+  <a class="btn-primary" href="/dictation?mode=today">今日最低默写</a>
+  <a class="btn-secondary" href="/dictation?mode=random">随机默写</a>
+  <a class="btn-secondary" href="/dictation?mode=wrong">错词默写</a>
+  <a class="btn-secondary" href="/dictation?mode=weak">弱词默写</a>
+</section>
+<section class="study-card dictation-card">
+  <p class="eyebrow" id="dictationInfo">默写</p>
+  <h2>中文释义</h2>
+  <p class="word-meaning large" id="dictationMeaning">加载中</p>
+  <div class="example-box"><p id="dictationExampleCn" class="muted"></p></div>
+  <input class="input dictation-input" id="answerInput" autocomplete="off" placeholder="请输入英文单词">
+  <button class="btn-primary" id="submitAnswerBtn" type="button">提交答案</button>
+  <div class="result-note" id="resultBox"></div>
+</section>
+<div class="study-actions action-grid two">
+  <button class="btn-secondary" id="prevBtn" type="button">上一题</button>
+  <button class="btn-secondary" id="nextBtn" type="button">下一题</button>
+</div>
+<script src="{{ url_for('static', filename='js/api.js', v='p10_2_6') }}"></script>
+<script src="{{ url_for('static', filename='js/dictation.js', v='p10_2_6') }}"></script>
+{% endblock %}

@@ -1,0 +1,14 @@
+[Unit]
+Description=CET-6 Vocabulary System P10.1
+After=network.target mysqld.service
+
+[Service]
+User=root
+WorkingDirectory=/var/www/cet6-vocab-system
+Environment="PATH=/var/www/cet6-vocab-system/.venv/bin"
+ExecStart=/var/www/cet6-vocab-system/.venv/bin/gunicorn -w 2 -b 127.0.0.1:8000 wsgi:app
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

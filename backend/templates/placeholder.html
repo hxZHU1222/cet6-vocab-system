@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} · CET-6 日课{% endblock %}
+{% block content %}
+<header class="page-header">
+  <p class="eyebrow">Reserved</p>
+  <h1>{{ title }}</h1>
+  <p class="muted">{{ message }}</p>
+</header>
+<section class="hero-card">
+  <h2>P10.1 当前重点</h2>
+  <p>本包已经把单词熟词出库/弱词与错词分离的服务逻辑写入 <code>backend/services/p10_state_service.py</code>，并完成句型库基础版。</p>
+  <a class="btn-primary" href="/patterns">进入句型库</a>
+</section>
+{% endblock %}

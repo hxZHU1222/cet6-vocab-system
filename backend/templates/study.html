@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}单词学习{% endblock %}
+{% block content %}
+<header class="compact-header">
+  <a class="back-link" href="/">← 今日</a>
+  <span class="badge" id="sessionInfo">单词学习</span>
+</header>
+<section class="study-card word-card">
+  <p class="eyebrow" id="wordModeLabel">WORDS</p>
+  <h1 class="word-main" id="wordText">加载中</h1>
+  <p class="phonetic" id="phonetic"></p>
+  <p class="word-meaning" id="meaning"></p>
+  <div class="example-box">
+    <p class="mini-label">例句</p>
+    <p id="exampleEn"></p>
+    <p class="muted" id="exampleCn"></p>
+  </div>
+  <div class="speech-toolbar">
+    <button class="btn-secondary" id="speakBtn" type="button">🔊 标准</button>
+    <button class="btn-secondary" id="slowSpeakBtn" type="button">🐢 慢读</button>
+    <button class="btn-secondary auto-speak-toggle" id="autoSpeakToggle" type="button">自动发音：开</button>
+  </div>
+</section>
+<div class="grade-grid">
+  <button class="grade-btn grade-0" data-grade="0">不认识</button>
+  <button class="grade-btn grade-1" data-grade="1">眼熟</button>
+  <button class="grade-btn grade-2" data-grade="2">认识</button>
+  <button class="grade-btn grade-3" data-grade="3">熟了</button>
+</div>
+<div class="study-actions action-grid">
+  <button class="btn-secondary" id="prevCardBtn" type="button">上一张</button>
+</div>
+<section class="small-card" id="emptyHint" style="display:none;margin-top:14px;">
+  <strong>这一组已经没有待学单词</strong>
+  <span>今日新词完成后，可以去随机刷词、弱词回看或错词卡片继续练。</span>
+  <div class="action-grid two">
+    <a class="btn-primary" href="/study?mode=random">随机刷词</a>
+    <a class="btn-secondary" href="/study?mode=preview">继续预习</a>
+  </div>
+</section>
+<script src="{{ url_for('static', filename='js/api.js', v='p10_2_6') }}"></script>
+<script src="{{ url_for('static', filename='js/speech.js', v='p10_2_6') }}"></script>
+<script src="{{ url_for('static', filename='js/study.js', v='p10_2_6') }}"></script>
+{% endblock %}

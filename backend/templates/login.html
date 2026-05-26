@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>登录 · CET-6 日课</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css', v='p10_2_6') }}">
+</head>
+<body>
+  <main class="app-shell login-shell">
+    <section class="hero-card login-card">
+      <p class="eyebrow">CET-6 Daily Course</p>
+      <h1>进入六级日课</h1>
+      <p class="muted">本地默认密码：<code>cet6-local</code>。服务器部署时请改 backend/.env。</p>
+      <form method="post" class="stack-form">
+        <input class="input" name="password" type="password" placeholder="输入访问密码" autofocus>
+        {% if error %}<p class="error">{{ error }}</p>{% endif %}
+        <button class="btn-primary" type="submit">登录</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
